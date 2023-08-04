@@ -3,10 +3,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 export default function TextEditor() {
   const editorRef = useRef(null);
-  const log = () => {
-    const html = editorRef.current.getContent();
-    console.log(html);
-  };
+
   return (
     <>
       <Editor
@@ -24,7 +21,6 @@ export default function TextEditor() {
           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
       />
-      <button onClick={log}>Log editor content</button>
     </>
   );
 }

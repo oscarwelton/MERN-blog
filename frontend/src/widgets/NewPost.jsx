@@ -5,7 +5,7 @@ const NewPost = (props) => {
 
   const createPost = () => {
     const title = document.getElementById("title").value;
-    const content = document.getElementById("content").value;
+    const content = document.querySelector(".tox-edit-area__iframe").contentWindow.document.querySelector("body").innerHTML;
     const image = document.getElementById("image").value;
     const tags = document.getElementById("tags").value.split(",");
     const post = {
@@ -27,21 +27,20 @@ const NewPost = (props) => {
 
   return (
     <div className="post-form">
-      <TextEditor />
-        {/* <RichTextEditor /> */}
-      {/* <h2>Create Post</h2>
+
+      <h2>Create Post</h2>
       <form onSubmit={() => createPost()}>
         <label htmlFor="title">Title</label>
         <input type="text" name="title" id="title" />
         <label htmlFor="content">Content</label>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <TextEditor />
         <label htmlFor="image">Image</label>
         <input type="text" name="image" id="image" />
         <label htmlFor="tags">Tags</label>
         <input type="text" name="tags" id="tags" />
         <button type="submit">Create Post</button>
       </form>
-     */}
+
 
     </div>
   );

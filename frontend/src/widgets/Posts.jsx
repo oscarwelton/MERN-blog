@@ -1,10 +1,17 @@
+const parse = require('html-react-parser');
+
 const Posts = (props) => {
   const { posts } = props;
+
 
   const viewPost = (post) => {
     // window.location.href += id;
     console.log(post)
   };
+
+  const parseContent = (content) => {
+    return parse(content)
+  }
 
   return (
     <div className="posts">
@@ -13,10 +20,12 @@ const Posts = (props) => {
           className="post"
           key={post._id}
           onClick={() => viewPost(post)}
-        >
-          <h2>{post.title}</h2>
-          <h5>{post.content.slice(0, 150)}</h5>
+          >
           <h6>{post.updatedAt}</h6>
+          <h2>{post.title}</h2>
+          <div className="content">
+            {parseContent(post.content)}
+          </div>
           <p>Tags:</p>
           {post.tags.map((tag) => (
             <ul className="tags">

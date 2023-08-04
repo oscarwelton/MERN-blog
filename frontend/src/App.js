@@ -24,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <h1 onClick={() => homePage()}>Oscar Welton</h1>
+      <button>New Post</button>
       <Posts posts={posts} />
       <NewPost />
     </div>
