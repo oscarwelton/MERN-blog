@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Posts from './widgets/Posts.jsx';
+import NewPost from './widgets/NewPost.jsx';
 
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const createPost = () => {
-    console.log("create post");
-  }
+
 
   const homePage = () => {
     window.location.href = "/";
@@ -26,8 +25,7 @@ function App() {
     <div className="App">
       <h1 onClick={() => homePage()}>Oscar Welton</h1>
       <Posts posts={posts} />
-
-      <button onClick={() => createPost()}>Create Post</button>
+      <NewPost />
     </div>
   );
 }

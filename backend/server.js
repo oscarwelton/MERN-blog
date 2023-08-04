@@ -37,6 +37,7 @@ mongoose
 
 app.get("/posts", getPosts);
 app.get("/:id", showPost);
+app.post("/posts", createPost);
 
 // app.use("/posts/:id", showPost);
 // app.use("/posts", createPost);

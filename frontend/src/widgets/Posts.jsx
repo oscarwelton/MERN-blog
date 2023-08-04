@@ -1,8 +1,9 @@
 const Posts = (props) => {
   const { posts } = props;
 
-  const viewPost = (id) => {
-    window.location.href += id;
+  const viewPost = (post) => {
+    // window.location.href += id;
+    console.log(post)
   };
 
   return (
@@ -11,13 +12,15 @@ const Posts = (props) => {
         <div
           className="post"
           key={post._id}
-          onClick={() => viewPost(post._id)}
+          onClick={() => viewPost(post)}
         >
           <h2>{post.title}</h2>
-          <h5>{post.content}</h5>
+          <h5>{post.content.slice(0, 150)}</h5>
+          <h6>{post.updatedAt}</h6>
+          <p>Tags:</p>
           {post.tags.map((tag) => (
             <ul className="tags">
-              <li>{tag}</li>
+              <li className="tag">{tag}</li>
             </ul>
           ))}
         </div>

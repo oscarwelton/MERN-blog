@@ -1,7 +1,10 @@
 @import './scss/reset.scss';
 @import './scss/fonts.scss';
 @import './scss/components/posts.scss';
+@import './scss/components/Editor.scss';
 
 body {
   height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
 }
