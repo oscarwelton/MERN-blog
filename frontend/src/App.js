@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Posts from './widgets/Posts.jsx';
-import NewPost from './widgets/NewPost.jsx';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Posts from "./widgets/Posts.jsx";
+import NewPost from "./widgets/NewPost.jsx";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [newPost, setNewPost] = useState(false)
+  const [newPost, setNewPost] = useState(false);
 
   const homePage = () => {
     window.location.href = "/";
-  }
+  };
 
-  const handleClick = () => {
-    console.log("clicked");
-  }
+  const swtichContent = (event) => {
+    newPost ? setNewPost(false) : setNewPost(true);
+    event.target.innerText = "New Post"
+  };
 
   useEffect(() => {
     (async () => {
@@ -27,9 +28,16 @@ function App() {
   return (
     <div className="App">
       <h1 onClick={() => homePage()}>Oscar Welton</h1>
-      <button onClick={() => handleClick()}>New Post</button>
-      <Posts posts={posts} />
-      <NewPost />
+      <button
+        onClick={() => {
+          swtichContent();
+        }}
+      >
+        New Post
+      </button>
+      <div className="home-container">
+        {newPost ? <NewPost /> : <Posts posts={posts} />}
+      </div>
     </div>
   );
 }
