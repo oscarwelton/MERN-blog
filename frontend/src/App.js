@@ -1,10 +1,13 @@
-import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Posts from './widgets/Posts.jsx';
 
 function App() {
   const [posts, setPosts] = useState([]);
+
+  const createPost = () => {
+    console.log("create post");
+  }
 
   useEffect(() => {
     (async () => {
@@ -17,9 +20,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="p-4 bg-blue-500 text-white">Oscar Welton</h1>
-      <h2>Posts</h2>
+      <h1>Oscar Welton</h1>
       <Posts posts={posts} />
+
+      <button onClick={() => createPost()}>Create Post</button>
     </div>
   );
 }

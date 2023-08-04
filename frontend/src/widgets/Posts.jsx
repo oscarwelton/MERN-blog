@@ -3,16 +3,20 @@ const Posts = (props) => {
 
   const viewPost = (id) => {
     console.log(id);
-  }
+  };
 
   return (
     <div className="posts">
       {posts.map((post) => (
-        <div className="post" key={post.id} onClick={() => viewPost(post._id)}>
-          <h2 className="text-3xl font-bold underline">{post.title}</h2>
-          <p>{post.content}</p>
+        <div
+          className="post"
+          key={post.id}
+          onClick={() => viewPost(post._id)}
+        >
+          <h2>{post.title}</h2>
+          <h5>{post.content}</h5>
           {post.tags.map((tag) => (
-            <ul>
+            <ul className="tags">
               <li>{tag}</li>
             </ul>
           ))}
@@ -20,6 +24,6 @@ const Posts = (props) => {
       ))}
     </div>
   );
-}
+};
 
 export default Posts;
