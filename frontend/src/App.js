@@ -9,6 +9,10 @@ function App() {
     console.log("create post");
   }
 
+  const homePage = () => {
+    window.location.href = "/";
+  }
+
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:3001/posts");
@@ -20,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Oscar Welton</h1>
+      <h1 onClick={() => homePage()}>Oscar Welton</h1>
       <Posts posts={posts} />
 
       <button onClick={() => createPost()}>Create Post</button>

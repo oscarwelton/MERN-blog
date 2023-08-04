@@ -2,7 +2,7 @@ const Posts = (props) => {
   const { posts } = props;
 
   const viewPost = (id) => {
-    console.log(id);
+    window.location.href += id;
   };
 
   return (
@@ -10,7 +10,7 @@ const Posts = (props) => {
       {posts.map((post) => (
         <div
           className="post"
-          key={post.id}
+          key={post._id}
           onClick={() => viewPost(post._id)}
         >
           <h2>{post.title}</h2>

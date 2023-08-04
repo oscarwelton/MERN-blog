@@ -35,7 +35,9 @@ mongoose
     process.exit();
   });
 
-app.use("/posts", getPosts);
+app.get("/posts", getPosts);
+app.get("/:id", showPost);
+
 // app.use("/posts/:id", showPost);
 // app.use("/posts", createPost);
 

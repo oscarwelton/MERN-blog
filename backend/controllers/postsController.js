@@ -9,8 +9,8 @@ const getPosts = async (req, res) => {
   }
 }
 
-const showPosts = async (req, res) => {
-  const { id } = req.params;
+const showPost = async (req, res) => {
+  const id  = req.params.id;
   try {
     const post = await Post.findById(id);
     res.status(200).json(post);
@@ -32,6 +32,6 @@ const createPost = async (req, res) => {
 
 module.exports = {
   getPosts,
-  showPosts,
+  showPost,
   createPost
 }
