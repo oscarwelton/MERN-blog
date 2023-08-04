@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Oscar Welton</h1>
+      <h1 className="p-4 bg-blue-500 text-white">Oscar Welton</h1>
       <h2>Posts</h2>
       <Posts posts={posts} />
     </div>
