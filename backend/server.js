@@ -36,11 +36,14 @@ mongoose
   });
 
 app.get("/posts", getPosts);
-app.get("/:id", showPost);
 app.post("/posts", createPost);
+// app.get("/:id", showPost);
 
-// app.use("/posts/:id", showPost);
-// app.use("/posts", createPost);
+app.get("/api", (req, res) => {
+  const apiKey = process.env.TINY_KEY;
+  res.json({ apiKey: apiKey });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

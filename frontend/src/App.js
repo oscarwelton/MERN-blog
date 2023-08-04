@@ -5,11 +5,14 @@ import NewPost from './widgets/NewPost.jsx';
 
 function App() {
   const [posts, setPosts] = useState([]);
-
-
+  const [newPost, setNewPost] = useState(false)
 
   const homePage = () => {
     window.location.href = "/";
+  }
+
+  const handleClick = () => {
+    console.log("clicked");
   }
 
   useEffect(() => {
@@ -24,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1 onClick={() => homePage()}>Oscar Welton</h1>
-      <button>New Post</button>
+      <button onClick={() => handleClick()}>New Post</button>
       <Posts posts={posts} />
       <NewPost />
     </div>
