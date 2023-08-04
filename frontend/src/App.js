@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Posts from './widgets/Posts.jsx';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -14,11 +15,11 @@ function App() {
     })();
   }, []);
 
-  console.log(posts);
-
   return (
     <div className="App">
-      <h1>Oscar Welton Blog App</h1>
+      <h1>Oscar Welton</h1>
+      <h2>Posts</h2>
+      <Posts posts={posts} />
     </div>
   );
 }
