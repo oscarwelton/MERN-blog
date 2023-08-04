@@ -2,11 +2,16 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const { default: mongoose } = require("mongoose");
+const { getPosts, showPost, createPost } = require("./controllers/postsController.js");
+
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+
+app.use(cors());
+app.use(express.json());
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -15,11 +20,7 @@ mongoose
   })
   .then(() => {
     console.log("Successfully connected to the database.");
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}.`);
-    });
 
-    app.use(cors());
     app.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header(
@@ -33,3 +34,11 @@ mongoose
     console.log("Could not connect to the database. Exiting now...", err);
     process.exit();
   });
+
+app.use("/posts", getPosts);
+// app.use("/posts/:id", showPost);
+// app.use("/posts", createPost);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
